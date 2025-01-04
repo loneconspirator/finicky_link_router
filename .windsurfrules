@@ -1,0 +1,5 @@
+This is a chrome extension that routes links through Finicky when configured to use a different browser
+
+Only use code that will work in a Chrome extension setting. Some ES tricks will not work.
+
+Keep settings and constants in constants.js if they are shared between files

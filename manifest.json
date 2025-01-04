@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Finicky Link Router",
+  "version": "1.0",
+  "description": "Routes links through Finicky",
+  "permissions": [
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["constants.js", "content.js"]
+    }
+  ],
+  "options_page": "options.html"
+}
