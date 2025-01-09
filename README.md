@@ -8,3 +8,8 @@ Once installed, you have to configure two settings for the extension to do anyth
 
 1. Select the browser you have the extension installed in (what you're currently using).
 2. Paste in your Finicky config and click "Save Configuration" (usually in `~/.finicky`).
+
+```
+Copyright (c) 2025 Mike McCracken
+MIT License - see LICENSE file in root directory
+```

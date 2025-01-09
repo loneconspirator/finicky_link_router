@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2025 Mike McCracken
+ * MIT License - see LICENSE file in root directory
+ */
 const { FinickyConfig } = require('./finicky_config.js');
 
 // Sample Finicky config to test with

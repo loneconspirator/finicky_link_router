@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2025 Mike McCracken
+ * MIT License - see LICENSE file in root directory
+ */
 // Get debug mode from storage
 async function getDebugMode() {
   return (await chrome.storage.sync.get(STORAGE_KEYS.DEBUG_MODE))[STORAGE_KEYS.DEBUG_MODE] || false;
