@@ -51,6 +51,12 @@ async function initialize() {
     const link = e.target.closest('a');
     if (!link) return;
 
+    // Skip if we've already processed this click
+    if (link.dataset.finickyProcessed === 'true') {
+      link.dataset.finickyProcessed = '';  // Reset for future clicks
+      return;
+    }
+
     const url = link.href;
     if (!url) return;
 
@@ -169,7 +175,26 @@ async function initialize() {
   Current browser: ${currentBrowser}`);
     }
 
-    // If we should use the default browser behavior, trigger the link
+    // If we should use the default browser behavior, trigger the link naturally
+    if (!intercept) {
+      link.dataset.finickyProcessed = 'true';
+      // Create a new click event preserving the original event's properties
+      const clickEvent = new MouseEvent('click', {
+        bubbles: e.bubbles,
+        cancelable: e.cancelable,
+        view: e.view,
+        ctrlKey: e.ctrlKey,
+        altKey: e.altKey,
+        shiftKey: e.shiftKey,
+        metaKey: e.metaKey,
+        button: e.button,
+        buttons: e.buttons
+      });
+      link.dispatchEvent(clickEvent);
+      return;
+    }
+
+    // For intercepted links, redirect to Finicky
     window.location.href = destination;
   });
 }
